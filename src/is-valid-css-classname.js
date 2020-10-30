@@ -1,9 +1,14 @@
-import { nonCssSafeCharacters } from './non-css-safe-characters.js'
+import {
+  nonCssSafeCharacters,
+  invalidBeginningOfClassname,
+} from './constants.js'
 
 export const isValidCssClassname = str => {
   if (typeof str !== 'string') {
     return false
   }
 
-  return !nonCssSafeCharacters.test(str)
+  return (
+    !nonCssSafeCharacters.test(str) && !invalidBeginningOfClassname.test(str)
+  )
 }

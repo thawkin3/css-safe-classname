@@ -1,4 +1,7 @@
-import { nonCssSafeCharacters } from './non-css-safe-characters.js'
+import {
+  nonCssSafeCharacters,
+  invalidBeginningOfClassname,
+} from './constants.js'
 
 // https://www.w3.org/TR/CSS2/syndata.html
 // Section 4.1.3 Characters and case
@@ -20,5 +23,9 @@ export const createSafeCssClassname = str => {
     return ''
   }
 
-  return str.replace(nonCssSafeCharacters, '')
+  const strippedClassname = str.replace(nonCssSafeCharacters, '')
+
+  return invalidBeginningOfClassname.test(strippedClassname)
+    ? `_${strippedClassname}`
+    : strippedClassname
 }

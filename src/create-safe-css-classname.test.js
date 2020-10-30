@@ -148,6 +148,20 @@ describe('createSafeCssClassname', () => {
     })
   })
 
+  describe('invalid beginning of string', () => {
+    it('prepends an underscore to a string that begins with a digit', () => {
+      expect(createSafeCssClassname('123')).toBe('_123')
+    })
+
+    it('prepends an underscore to a string that begins with two hyphens', () => {
+      expect(createSafeCssClassname('--coolClass')).toBe('_--coolClass')
+    })
+
+    it('prepends an underscore to a string that begins with a hyphen followed by a digit', () => {
+      expect(createSafeCssClassname('-123')).toBe('_-123')
+    })
+  })
+
   describe('valid characters', () => {
     it('does not affect a valid class name string', () => {
       expect(createSafeCssClassname('cool')).toBe('cool')
