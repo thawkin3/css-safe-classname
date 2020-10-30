@@ -34,21 +34,21 @@ const originalInputString = 'your#css.classname>here'
 console.log(isValidCssClassname(originalInputString))
 // outputs: false
 
-const safeCssClassName = createSafeCssClassname(originalInputString)
+const safeCssClassname = createSafeCssClassname(originalInputString)
 // outputs: yourcssclassnamehere
 ```
 
 ### CommonJS Modules
 
 ```js
-var cssSafeClassName = require('css-safe-classname')
+var cssSafeClassname = require('css-safe-classname')
 
 var originalInputString = 'your#css.classname>here'
 
-console.log(cssSafeClassName.isValidCssClassname(originalInputString))
+console.log(cssSafeClassname.isValidCssClassname(originalInputString))
 // outputs: false
 
-var safeCssClassName = cssSafeClassName.createSafeCssClassname(
+var safeCssClassname = cssSafeClassname.createSafeCssClassname(
   originalInputString
 )
 // outputs: yourcssclassnamehere
