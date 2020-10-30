@@ -27,10 +27,7 @@ yarn add css-safe-classname
 ### ES Modules
 
 ```js
-import {
-  createSafeCssClassname,
-  isValidCssClassname,
-} from 'css-safe-classname'
+import { createSafeCssClassname, isValidCssClassname } from 'css-safe-classname'
 
 const originalInputString = 'your#css.classname>here'
 
@@ -51,7 +48,9 @@ var originalInputString = 'your#css.classname>here'
 console.log(cssSafeClassName.isValidCssClassname(originalInputString))
 // outputs: false
 
-var safeCssClassName = cssSafeClassName.createSafeCssClassname(originalInputString)
+var safeCssClassName = cssSafeClassName.createSafeCssClassname(
+  originalInputString
+)
 // outputs: yourcssclassnamehere
 ```
 
