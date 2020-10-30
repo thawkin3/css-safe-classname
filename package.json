@@ -1,6 +1,6 @@
 {
   "name": "css-safe-classname",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utility methods for creating and validating safe CSS classnames from string input",
   "main": "dist/main.cjs.min.js",
   "module": "dist/main.esm.min.js",
