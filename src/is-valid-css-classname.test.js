@@ -24,6 +24,8 @@ describe('isValidCssClassname', () => {
     expect(isValidCssClassname('_cool')).toBe(true)
     expect(isValidCssClassname('-cool')).toBe(true)
     expect(isValidCssClassname('cool123')).toBe(true)
+    expect(isValidCssClassname('cool--class')).toBe(true)
+    expect(isValidCssClassname('cool-123')).toBe(true)
   })
 
   describe('invalid beginning of string', () => {
@@ -40,12 +42,138 @@ describe('isValidCssClassname', () => {
     })
   })
 
+  describe('invalid characters', () => {
+    it('returns false if the string contains spaces', () => {
+      expect(isValidCssClassname('This Is My Class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ! character', () => {
+      expect(isValidCssClassname('cool!class')).toBe(false)
+    })
+
+    it('returns false if the string contains the " character', () => {
+      expect(isValidCssClassname('cool"class')).toBe(false)
+    })
+
+    it('returns false if the string contains the # character', () => {
+      expect(isValidCssClassname('cool#class')).toBe(false)
+    })
+
+    it('returns false if the string contains the $ character', () => {
+      expect(isValidCssClassname('cool$class')).toBe(false)
+    })
+
+    it('returns false if the string contains the % character', () => {
+      expect(isValidCssClassname('cool%class')).toBe(false)
+    })
+
+    it('returns false if the string contains the & character', () => {
+      expect(isValidCssClassname('cool&class')).toBe(false)
+    })
+
+    it("returns false if the string contains the ' character", () => {
+      expect(isValidCssClassname("cool'class")).toBe(false)
+    })
+
+    it('returns false if the string contains the ( character', () => {
+      expect(isValidCssClassname('cool(class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ) character', () => {
+      expect(isValidCssClassname('cool)class')).toBe(false)
+    })
+
+    it('returns false if the string contains the * character', () => {
+      expect(isValidCssClassname('cool*class')).toBe(false)
+    })
+
+    it('returns false if the string contains the + character', () => {
+      expect(isValidCssClassname('cool+class')).toBe(false)
+    })
+
+    it('returns false if the string contains the , character', () => {
+      expect(isValidCssClassname('cool,class')).toBe(false)
+    })
+
+    it('returns false if the string contains the . character', () => {
+      expect(isValidCssClassname('cool.class')).toBe(false)
+    })
+
+    it('returns false if the string contains the / character', () => {
+      expect(isValidCssClassname('cool/class')).toBe(false)
+    })
+
+    it('returns false if the string contains the : character', () => {
+      expect(isValidCssClassname('cool:class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ; character', () => {
+      expect(isValidCssClassname('cool;class')).toBe(false)
+    })
+
+    it('returns false if the string contains the < character', () => {
+      expect(isValidCssClassname('cool<class')).toBe(false)
+    })
+
+    it('returns false if the string contains the = character', () => {
+      expect(isValidCssClassname('cool=class')).toBe(false)
+    })
+
+    it('returns false if the string contains the > character', () => {
+      expect(isValidCssClassname('cool>class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ? character', () => {
+      expect(isValidCssClassname('cool?class')).toBe(false)
+    })
+
+    it('returns false if the string contains the @ character', () => {
+      expect(isValidCssClassname('cool@class')).toBe(false)
+    })
+
+    it('returns false if the string contains the [ character', () => {
+      expect(isValidCssClassname('cool[class')).toBe(false)
+    })
+
+    it('returns false if the string contains the  character', () => {
+      expect(isValidCssClassname('cool\\class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ] character', () => {
+      expect(isValidCssClassname('cool]class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ^ character', () => {
+      expect(isValidCssClassname('cool^class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ` character', () => {
+      expect(isValidCssClassname('cool`class')).toBe(false)
+    })
+
+    it('returns false if the string contains the { character', () => {
+      expect(isValidCssClassname('cool{class')).toBe(false)
+    })
+
+    it('returns false if the string contains the | character', () => {
+      expect(isValidCssClassname('cool|class')).toBe(false)
+    })
+
+    it('returns false if the string contains the } character', () => {
+      expect(isValidCssClassname('cool}class')).toBe(false)
+    })
+
+    it('returns false if the string contains the ~ character', () => {
+      expect(isValidCssClassname('cool~class')).toBe(false)
+    })
+  })
+
   it('returns false if the provided string is not a valid css classname', () => {
     expect(isValidCssClassname('#test')).toBe(false)
-    // expect(isValidCssClassname('.test')).toBe(false);
-    // expect(isValidCssClassname('>test')).toBe(false);
+    expect(isValidCssClassname('.test')).toBe(false)
+    expect(isValidCssClassname('>test')).toBe(false)
     expect(isValidCssClassname('has spaces in it')).toBe(false)
     expect(isValidCssClassname('cool+class')).toBe(false)
-    // expect(isValidCssClassname('cool~class')).toBe(false);
+    expect(isValidCssClassname('cool~class')).toBe(false)
   })
 })

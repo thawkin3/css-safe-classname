@@ -23,7 +23,10 @@ export const createSafeCssClassname = str => {
     return ''
   }
 
-  const strippedClassname = str.replace(nonCssSafeCharacters, '')
+  const strippedClassname = str.replace(
+    new RegExp(nonCssSafeCharacters, 'g'),
+    ''
+  )
 
   return invalidBeginningOfClassname.test(strippedClassname)
     ? `_${strippedClassname}`

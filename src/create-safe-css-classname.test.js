@@ -110,7 +110,7 @@ describe('createSafeCssClassname', () => {
     })
 
     it('strips out the  character from the string', () => {
-      expect(createSafeCssClassname('coolclass')).toBe('coolclass')
+      expect(createSafeCssClassname('cool\\class')).toBe('coolclass')
     })
 
     it('strips out the ] character from the string', () => {
@@ -173,6 +173,8 @@ describe('createSafeCssClassname', () => {
       expect(createSafeCssClassname('_cool')).toBe('_cool')
       expect(createSafeCssClassname('-cool')).toBe('-cool')
       expect(createSafeCssClassname('cool123')).toBe('cool123')
+      expect(createSafeCssClassname('cool--class')).toBe('cool--class')
+      expect(createSafeCssClassname('cool-123')).toBe('cool-123')
     })
   })
 })
