@@ -24,10 +24,34 @@ yarn add css-safe-classname
 
 ## Usage
 
-```js
-import { createSafeCssClassName } from 'css-safe-classname'
+### ES Modules
 
-const safeCssClassName = createSafeCssClassName('your#css.classname>here')
+```js
+import {
+  createSafeCssClassname,
+  isValidCssClassname,
+} from 'css-safe-classname'
+
+const originalInputString = 'your#css.classname>here'
+
+console.log(isValidCssClassname(originalInputString))
+// outputs: false
+
+const safeCssClassName = createSafeCssClassname(originalInputString)
+// outputs: yourcssclassnamehere
+```
+
+### CommonJS Modules
+
+```js
+var cssSafeClassName = require('css-safe-classname')
+
+var originalInputString = 'your#css.classname>here'
+
+console.log(cssSafeClassName.isValidCssClassname(originalInputString))
+// outputs: false
+
+var safeCssClassName = cssSafeClassName.createSafeCssClassname(originalInputString)
 // outputs: yourcssclassnamehere
 ```
 
