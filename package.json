@@ -30,7 +30,7 @@
     "build": "NODE_ENV=production rollup --config",
     "cz": "git-cz",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint": "run-p eslint prettier",
+    "lint": "run-s prettier eslint",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "prettier-watch": "onchange \"**/*.{js,jsx,ts,tsx,md}\" -- prettier --write {{changed}}",
     "release": "standard-version",
