@@ -35,6 +35,7 @@ console.log(isValidCssClassname(originalInputString))
 // outputs: false
 
 const safeCssClassname = createSafeCssClassname(originalInputString)
+console.log(safeCssClassname)
 // outputs: yourcssclassnamehere
 ```
 
@@ -51,24 +52,9 @@ console.log(cssSafeClassname.isValidCssClassname(originalInputString))
 var safeCssClassname = cssSafeClassname.createSafeCssClassname(
   originalInputString
 )
+console.log(safeCssClassname)
 // outputs: yourcssclassnamehere
 ```
-
-## NPM Scripts for Local Development
-
-For a complete list, see [package.json](package.json).
-
-- `yarn build`: Generates the minified build from the source code using [Rollup](https://rollupjs.org/)
-- `yarn cz`: Uses [commitizen](https://github.com/commitizen/cz-cli) to walk you through some steps via the cli and then commits your code using a formatted commit message that it generates
-- `yarn eslint`: Runs eslint to lint JS files
-- `yarn install`: Installs dependencies
-- `yarn lint`: Runs prettier followed by eslint to lint JS files
-- `yarn prettier`: Formats the code so you don't have to worry about white space and other formatting during development
-- `yarn prettier-watch`: Runs prettier in watch mode
-- `yarn release`: Bumps the package version and generates the changelog using [standard-version](https://github.com/conventional-changelog/standard-version)
-- `yarn test`: Runs all tests
-- `yarn test:coverage`: Runs all tests and includes coverage report
-- `yarn test:watch`: Runs tests in watch mode
 
 ## Contributing
 
