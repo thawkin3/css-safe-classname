@@ -28,6 +28,10 @@ describe('isValidCssClassname', () => {
     expect(isValidCssClassname('cool-123')).toBe(true)
   })
 
+  it('treats characters with accents as valid characters', () => {
+    expect(isValidCssClassname('cööl')).toBe(true)
+  })
+
   describe('invalid beginning of string', () => {
     it('returns false if the provided string begins with a digit', () => {
       expect(isValidCssClassname('123')).toBe(false)

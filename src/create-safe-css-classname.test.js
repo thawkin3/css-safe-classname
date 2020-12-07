@@ -176,5 +176,9 @@ describe('createSafeCssClassname', () => {
       expect(createSafeCssClassname('cool--class')).toBe('cool--class')
       expect(createSafeCssClassname('cool-123')).toBe('cool-123')
     })
+
+    it('treats characters with accents as valid characters', () => {
+      expect(createSafeCssClassname('cööl')).toBe('cööl')
+    })
   })
 })
